@@ -22,8 +22,8 @@ const JEWEL_SCENE = preload("res://TSCN/jewel.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	groundNum = 150
-	groundDiv = 15
+	groundNum = 200
+	groundDiv = 20
 
 	jewelNum = groundNum - ((2 * groundDiv) + (int(groundNum / float(groundDiv)) - 2))
 	jewelCount = 0

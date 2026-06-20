@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dxbv30mosfl0x" path="res://TSCN/jewel_setter.gd" id="2_s5wa2"]
 [ext_resource type="Script" uid="uid://bx1dvcrdhhnqo" path="res://TSCN/jewels_checker.gd" id="3_odqrj"]
 [ext_resource type="Script" uid="uid://bw70kx0k7umac" path="res://TSCN/mouse_controls.gd" id="4_gtjxt"]
+[ext_resource type="Script" uid="uid://dgq3mxvkdnme6" path="res://TSCN/loop_state.gd" id="5_p3t1g"]
 
 [node name="Node2D" type="Node2D" unique_id=1416398507]
 
@@ -20,3 +21,12 @@ gridGenNode = NodePath("../GridGen")
 
 [node name="MouseControls" type="Node2D" parent="." unique_id=1105390420]
 script = ExtResource("4_gtjxt")
+
+[node name="LoopState" type="TextEdit" parent="." unique_id=1273285870 node_paths=PackedStringArray("jewelsCheckerNode")]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 40
+text = "0"
+script = ExtResource("5_p3t1g")
+jewelsCheckerNode = NodePath("../JewelsChecker")
