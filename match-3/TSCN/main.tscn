@@ -18,6 +18,12 @@ gridGenNode = NodePath("../GridGen")
 [node name="JewelsChecker" type="Node2D" parent="." unique_id=1177828597 node_paths=PackedStringArray("gridGenNode")]
 script = ExtResource("3_odqrj")
 gridGenNode = NodePath("../GridGen")
+_jewelsDiv = null
+_loopState = null
+_maxResetLayer = null
+_delayAccumulation = null
+_delaySeconds = null
+_updateI = null
 
 [node name="MouseControls" type="Node2D" parent="." unique_id=1105390420]
 script = ExtResource("4_gtjxt")

@@ -29,7 +29,7 @@ func _set_initial_jewels() -> void:
 		var jewelSprite = gridGenNode.jewelArr[_i].get_child(0) as Sprite2D
 		var textureVal : int = 1
 		textureVal = randi_range(1, 9)
-		jewelSprite.texture = load("res://Textures/Jewel_" + str(textureVal) + ".png")
+		jewelSprite.texture = gridGenNode.textureJewels[textureVal]
 		gridGenNode.jewelTextureValArr[_i] = textureVal
 		gridGenNode.jewelArr[_i].position.x = gridGenNode.groundArr[k].position.x
 		gridGenNode.jewelArr[_i].position.y = gridGenNode.groundArr[k].position.y

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://vxt1cvguv66b"]
 
-[ext_resource type="Texture2D" uid="uid://cjy80wv27t8vu" path="res://Textures/Jewel_1.png" id="1_83p73"]
+[ext_resource type="Texture2D" uid="uid://c7fxv1xr16wn2" path="res://Textures/Jewel_0.png" id="1_83p73"]
 
 [node name="Jewel" type="Node2D" unique_id=1924172458]
 

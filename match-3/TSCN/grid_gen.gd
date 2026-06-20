@@ -3,6 +3,9 @@ extends Node2D
 const BACKGROUND_SCENE = preload("res://TSCN/background.tscn")
 const JEWEL_SCENE = preload("res://TSCN/jewel.tscn")
 
+@export var textureJewels : Array[Texture]
+
+
 @export var groundNum : int = 0
 @export var groundDiv : int = 0
 @export var groundArr : Array[Node2D] = []
@@ -20,13 +23,15 @@ const JEWEL_SCENE = preload("res://TSCN/jewel.tscn")
 @export var xOffset : float = 0.0
 @export var yOffset : float = 0.0
 
+@export var initial_spawning : bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	groundNum = 200
 	groundDiv = 20
 
 	jewelNum = groundNum - ((2 * groundDiv) + (int(groundNum / float(groundDiv)) - 2))
-	jewelCount = 0
+	jewelCount = 10
 
 	infiniteXVal = -9999.0
 	infiniteYVal = -9999.0
@@ -35,11 +40,15 @@ func _ready() -> void:
 	yBeginOffset = 610.0
 	xOffset = 70.0
 	yOffset = -70.0
+	initial_spawning = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	_spawn_background()
-	_spawn_jewels()
+	if initial_spawning == false:
+		_spawn_background()
+		_spawn_jewels()
+		_load_jewels()
+		initial_spawning = true
 
 func _spawn_background() -> void:
 	var ground_instance
@@ -69,4 +78,8 @@ func _spawn_jewels() -> void:
 		jewel_instance.global_position.y = infiniteYVal
 		add_child(jewel_instance)
 		jewelArr.append(jewel_instance)
-		jewelTextureValArr.append(1)
+		jewelTextureValArr.append(0)
+
+func _load_jewels() -> void:
+	for k in jewelCount:
+		textureJewels.append(load("res://Textures/Jewel_" + str(k) + ".png"))
