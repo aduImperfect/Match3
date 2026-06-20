@@ -16,12 +16,13 @@ const JEWEL_SCENE = preload("res://TSCN/jewel.tscn")
 
 @export var xBeginOffset : float = 0.0
 @export var yBeginOffset : float = 0.0
-@export var offset : float = 0.0
+@export var xOffset : float = 0.0
+@export var yOffset : float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	groundNum = 100
-	groundDiv = 10
+	groundNum = 150
+	groundDiv = 15
 
 	jewelNum = 200
 	jewelCount = 0
@@ -30,8 +31,9 @@ func _ready() -> void:
 	infiniteYVal = -9999.0
 
 	xBeginOffset = 300.0
-	yBeginOffset = -80.0
-	offset = 70.0
+	yBeginOffset = 550.0
+	xOffset = 70.0
+	yOffset = -70.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -47,8 +49,8 @@ func _spawn_background() -> void:
 		ground_instance = BACKGROUND_SCENE.instantiate()
 		#multiplied decrement by each increase of the yVal.
 		#on being even -  make sure to take the lower valued decrement to offset the hex
-		ground_instance.global_position.x = (_xBegin * offset) + xBeginOffset
-		ground_instance.global_position.y = (_yBegin * offset) + yBeginOffset
+		ground_instance.global_position.x = (_xBegin * xOffset) + xBeginOffset
+		ground_instance.global_position.y = (_yBegin * yOffset) + yBeginOffset
 		add_child(ground_instance)
 		groundArr.append(ground_instance)
 		_xBegin += 1
