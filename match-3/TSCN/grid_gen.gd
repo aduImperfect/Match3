@@ -11,16 +11,27 @@ const JEWEL_SCENE = preload("res://TSCN/jewel.tscn")
 @export var jewelCount : int = 0
 @export var jewelArr : Array[Node2D] = []
 
-@export var infiniteXVal : float = -9999.0
-@export var infiniteYVal : float = -9999.0
+@export var infiniteXVal : float = 0.0
+@export var infiniteYVal : float = 0.0
+
+@export var xBeginOffset : float = 0.0
+@export var yBeginOffset : float = 0.0
+@export var offset : float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	groundNum = 90
+	groundNum = 100
 	groundDiv = 10
 
 	jewelNum = 200
 	jewelCount = 0
+
+	infiniteXVal = -9999.0
+	infiniteYVal = -9999.0
+
+	xBeginOffset = 300.0
+	yBeginOffset = -80.0
+	offset = 70.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -31,9 +42,6 @@ func _spawn_background() -> void:
 	var ground_instance
 	var _xBegin : int = 0
 	var _yBegin : int = 0
-	var xBeginOffset : float = 300.0
-	var yBeginOffset : float = -80.0
-	var offset : float = 70.0
 
 	for k in groundNum:
 		ground_instance = BACKGROUND_SCENE.instantiate()

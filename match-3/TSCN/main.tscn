@@ -8,5 +8,6 @@
 [node name="GridGen" type="Node2D" parent="." unique_id=1911874507]
 script = ExtResource("1_fmnqs")
 
-[node name="JewelSetter" type="Node2D" parent="." unique_id=2021866136]
+[node name="JewelSetter" type="Node2D" parent="." unique_id=2021866136 node_paths=PackedStringArray("gridGenNode")]
 script = ExtResource("2_s5wa2")
+gridGenNode = NodePath("../GridGen")
