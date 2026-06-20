@@ -1,3 +1,12 @@
 [gd_scene format=3 uid="uid://usi5bt0sj0tj"]
 
+[ext_resource type="Script" uid="uid://ntnxu4fpbu2t" path="res://TSCN/grid_gen.gd" id="1_fmnqs"]
+[ext_resource type="Script" uid="uid://dxbv30mosfl0x" path="res://TSCN/jewel_setter.gd" id="2_s5wa2"]
+
 [node name="Node2D" type="Node2D" unique_id=1416398507]
+
+[node name="GridGen" type="Node2D" parent="." unique_id=1911874507]
+script = ExtResource("1_fmnqs")
+
+[node name="JewelSetter" type="Node2D" parent="." unique_id=2021866136]
+script = ExtResource("2_s5wa2")

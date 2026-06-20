@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bmw0x6r5578w6"]
+
+[ext_resource type="Texture2D" uid="uid://cer8q52gyitjy" path="res://Textures/Jewel_2.png" id="1_5bjo8"]
+
+[node name="Jewel2" type="Node2D" unique_id=1863607956]
+
+[node name="Jewel2Spr" type="Sprite2D" parent="." unique_id=1328909542]
+z_index = -3
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_5bjo8")

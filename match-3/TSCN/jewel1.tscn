@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://daqui42vfe8bt"]
+
+[ext_resource type="Texture2D" uid="uid://cjy80wv27t8vu" path="res://Textures/Jewel_1.png" id="1_wtpnh"]
+
+[node name="Jewel1" type="Node2D" unique_id=2051830361]
+
+[node name="Jewel1Spr" type="Sprite2D" parent="." unique_id=1211971955]
+z_index = -3
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_wtpnh")
