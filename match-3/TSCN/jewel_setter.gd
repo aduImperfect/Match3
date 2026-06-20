@@ -20,7 +20,7 @@ func _set_initial_jewels() -> void:
 	var _i : int = 0
 
 	for k in gridGenNode.groundNum:
-		if _xBegin == 0 || _xBegin == 9:
+		if _xBegin == 0 || _xBegin == 9 || _yBegin == 0:
 			_xBegin += 1
 			if (_xBegin >= int(gridGenNode.groundNum / float(gridGenNode.groundDiv))):
 				_xBegin = 0
@@ -30,6 +30,7 @@ func _set_initial_jewels() -> void:
 		var textureVal : int = 1
 		textureVal = randi_range(1, 9)
 		jewelSprite.texture = load("res://Textures/Jewel_" + str(textureVal) + ".png")
+		gridGenNode.jewelTextureValArr[_i] = textureVal
 		gridGenNode.jewelArr[_i].position.x = gridGenNode.groundArr[k].position.x
 		gridGenNode.jewelArr[_i].position.y = gridGenNode.groundArr[k].position.y
 		_i += 1

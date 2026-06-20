@@ -10,6 +10,7 @@ const JEWEL_SCENE = preload("res://TSCN/jewel.tscn")
 @export var jewelNum : int = 0
 @export var jewelCount : int = 0
 @export var jewelArr : Array[Node2D] = []
+@export var jewelTextureValArr : Array[int] = []
 
 @export var infiniteXVal : float = 0.0
 @export var infiniteYVal : float = 0.0
@@ -24,14 +25,14 @@ func _ready() -> void:
 	groundNum = 150
 	groundDiv = 15
 
-	jewelNum = 200
+	jewelNum = groundNum - ((2 * groundDiv) + (int(groundNum / float(groundDiv)) - 2))
 	jewelCount = 0
 
 	infiniteXVal = -9999.0
 	infiniteYVal = -9999.0
 
 	xBeginOffset = 300.0
-	yBeginOffset = 550.0
+	yBeginOffset = 610.0
 	xOffset = 70.0
 	yOffset = -70.0
 
@@ -68,3 +69,4 @@ func _spawn_jewels() -> void:
 		jewel_instance.global_position.y = infiniteYVal
 		add_child(jewel_instance)
 		jewelArr.append(jewel_instance)
+		jewelTextureValArr.append(1)

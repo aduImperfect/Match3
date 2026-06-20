@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ntnxu4fpbu2t" path="res://TSCN/grid_gen.gd" id="1_fmnqs"]
 [ext_resource type="Script" uid="uid://dxbv30mosfl0x" path="res://TSCN/jewel_setter.gd" id="2_s5wa2"]
 [ext_resource type="Script" uid="uid://bx1dvcrdhhnqo" path="res://TSCN/jewels_checker.gd" id="3_odqrj"]
+[ext_resource type="Script" uid="uid://bw70kx0k7umac" path="res://TSCN/mouse_controls.gd" id="4_gtjxt"]
 
 [node name="Node2D" type="Node2D" unique_id=1416398507]
 
@@ -16,3 +17,6 @@ gridGenNode = NodePath("../GridGen")
 [node name="JewelsChecker" type="Node2D" parent="." unique_id=1177828597 node_paths=PackedStringArray("gridGenNode")]
 script = ExtResource("3_odqrj")
 gridGenNode = NodePath("../GridGen")
+
+[node name="MouseControls" type="Node2D" parent="." unique_id=1105390420]
+script = ExtResource("4_gtjxt")
