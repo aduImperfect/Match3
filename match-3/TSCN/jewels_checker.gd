@@ -22,7 +22,8 @@ func _checker_updater_for_match_3() -> void:
 	var _i : int = 0
 
 	for k in gridGenNode.groundNum:
-		if int(_i / float(_jewelsDiv)) > _maxResetLayer:
+		var iHeight : int = int(_i / float(_jewelsDiv))
+		if iHeight > _maxResetLayer:
 			break
 
 		if _xBegin == 0 || _xBegin == 9 || _yBegin == 0:
@@ -32,11 +33,9 @@ func _checker_updater_for_match_3() -> void:
 				_yBegin += 1
 			continue
 
-		var iHeight : int = (_i % _jewelsDiv)
-
 		#The below section is to check for horizontal states.
-		var iSameHorizState1 : bool = (_i % _jewelsDiv) == ((_i + 1) % _jewelsDiv)
-		var iSameHorizState2 : bool = (_i % _jewelsDiv) == ((_i + 2) % _jewelsDiv)
+		var iSameHorizState1 : bool = iHeight == int((_i + 1) / float(_jewelsDiv))
+		var iSameHorizState2 : bool = iHeight == int((_i + 2) / float(_jewelsDiv))
 		var iSameHorizStateMain : bool = iSameHorizState1 && iSameHorizState2
 
 		var iTextureSameHoriz1 : bool = (gridGenNode.jewelTextureValArr[_i] == gridGenNode.jewelTextureValArr[_i + 1])
@@ -45,6 +44,8 @@ func _checker_updater_for_match_3() -> void:
 
 		#The below section is to update if horizontal match-3 occurs.
 		if iSameHorizStateMain && iTextureSameHorizMain: 
+			_loopState += 1
+
 			#shift everything tied above that row down till about the 12th row (hidden above)
 			for j in range(iHeight, _maxResetLayer, 1):
 				gridGenNode.jewelArr[_i] = gridGenNode.jewelArr[_i + _jewelsDiv]
@@ -61,7 +62,6 @@ func _checker_updater_for_match_3() -> void:
 				textureVal = randi_range(1, 9)
 				gridGenNode.jewelArr[_i].texture = load("res://Textures/Jewel_" + str(textureVal) + ".png")
 				gridGenNode.jewelTextureValArr[_i] = textureVal
-			_loopState += 1
 
 		_i += 1
 		_xBegin += 1
